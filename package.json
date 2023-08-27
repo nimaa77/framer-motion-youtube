@@ -1,5 +1,5 @@
 {
-  "name": "framer-motion",
+  "name": "framer-motion-youtube",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -13,6 +13,7 @@
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
+    "framer-motion": "^10.16.1",
     "next": "13.4.19",
     "postcss": "8.4.28",
     "react": "18.2.0",
