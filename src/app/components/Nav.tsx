@@ -30,7 +30,7 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="px-4 py-3">
+    <nav>
       <ul className="space-x-3">
         {navItems.map((item) => {
           const isActive = pathname === item.path;
