@@ -1,6 +1,9 @@
 "use client"
 
-import { motion } from "framer-motion"
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion"
 import {
   useEffect,
   useState,
@@ -23,13 +26,21 @@ export default function Exit() {
         toggle
       </button>
       <div className="w-full h-[75vh] grid place-items-center">
-        {visible && (
-          <div
-            className={`bg-pink-600 rounded-lg w-40 h-40
-              ${"fadeIn"}
-              `}
-          />
-        )}
+        <AnimatePresence>
+          {visible && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{
+                opacity: 0,
+              }}
+              transition={{
+                duration: 0.5,
+              }}
+              className={`bg-pink-600 rounded-lg w-40 h-40`}
+            />
+          )}
+        </AnimatePresence>
       </div>
     </div>
   )

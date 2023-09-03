@@ -19,9 +19,10 @@
 }
 
 .fade-in {
-  animation: fadeIn 500ms ease-in forwards;
+  animation: fadeIn 500ms ease-in
+    forwards;
 }
 
 .fade-out {
-  animation: fadeOut 500ms ease-in forwards;
+  animation: fadeOut 1s ease-in forwards;
 }
