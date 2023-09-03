@@ -1,26 +1,26 @@
-"use client"
+"use client";
 
 import {
   motion,
   AnimatePresence,
-} from "framer-motion"
+} from "framer-motion";
 import {
   useEffect,
   useState,
-} from "react"
+} from "react";
 
-import "./animation.css"
+import "./animation.css";
 
 export default function Exit() {
   const [visible, setVisible] =
-    useState(false)
+    useState(false);
 
   return (
     <div className="mt-10">
       <button
         className="border p-2 rounded-lg bg-pink-500 text-white shadow-md active:bg-pink-600"
         onClick={() => {
-          setVisible(!visible)
+          setVisible(!visible);
         }}
       >
         toggle
@@ -31,9 +31,7 @@ export default function Exit() {
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{
-                opacity: 0,
-              }}
+              exit={{ opacity: 0 }}
               transition={{
                 duration: 0.5,
               }}
@@ -43,5 +41,5 @@ export default function Exit() {
         </AnimatePresence>
       </div>
     </div>
-  )
+  );
 }
