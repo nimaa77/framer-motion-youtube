@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import Card from "./components/Card"
+import Card from "./components/Card";
 
 const AnimatedCard = (
   props: React.ComponentProps<
     typeof Card
   >
 ) => {
-  return <Card {...props} />
-}
+  return <Card {...props} />;
+};
 
 const Shop = () => {
   return (
@@ -27,7 +27,7 @@ const Shop = () => {
         <AnimatedCard />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop;
