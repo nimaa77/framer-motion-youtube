@@ -1,7 +1,10 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react"
+import {
+  AnimatePresence,
+  motion,
+} from "framer-motion"
 
 const items = [
   {
@@ -22,41 +25,58 @@ const items = [
     content:
       "Lorem, ipsum dolor sit amet consectetur adipisicing elit. laboriosam libero explicabo Tenetur magnam omnis voluptatum maiores ipsa qui, laboriosam libero explicabo reprehenderit veritatis unde quis fugit?",
   },
-];
+]
 
 const Accordion = () => {
   const [active, setActive] =
-    useState(1);
+    useState(1)
 
   return (
-    <div>
-      <ul className="space-y-3">
-        {items.map((item) => (
-          <li key={item.id}>
-            <button
-              className="flex flex-row justify-between border-b border-gray-400 w-full text-left"
-              onClick={() =>
-                setActive(item.id)
-              }
-            >
-              {item.title}
-              <Icon />
-            </button>
-            <div
-              className={`overflow-hidden mt-2 ${
-                active === item.id
-                  ? "h-auto"
-                  : "h-0"
-              }`}
-            >
-              <p>{item.content}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-};
+    <AnimatePresence initial={false}>
+      <div>
+        <ul className="space-y-3">
+          {items.map((item) => (
+            <li key={item.id}>
+              <button
+                className="flex flex-row justify-between border-b border-gray-400 w-full text-left"
+                onClick={() =>
+                  setActive(item.id)
+                }
+              >
+                {item.title}
+                <motion.div
+                  animate={{
+                    rotate:
+                      item.id === active
+                        ? 180
+                        : 0,
+                  }}
+                  transition={{
+                    type: "keyframes",
+                    ease: "easeInOut",
+                  }}
+                >
+                  <Icon />
+                </motion.div>
+              </button>
+              <motion.div
+                className={`overflow-hidden mt-2`}
+                animate={{
+                  height:
+                    active === item.id
+                      ? "auto"
+                      : 0,
+                }}
+              >
+                <p>{item.content}</p>
+              </motion.div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </AnimatePresence>
+  )
+}
 
 const Icon = () => {
   return (
@@ -74,7 +94,7 @@ const Icon = () => {
         d="M4.5 15.75l7.5-7.5 7.5 7.5"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Accordion;
+export default Accordion

@@ -1,14 +1,33 @@
-"use client";
+"use client"
 
-import Card from "./components/Card";
+import { motion } from "framer-motion"
+import Card from "./components/Card"
 
 const AnimatedCard = (
   props: React.ComponentProps<
     typeof Card
   >
 ) => {
-  return <Card {...props} />;
-};
+  return (
+    <motion.div
+      {...props}
+      initial={{
+        opacity: 0,
+        y: 100,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        amount: 0.6,
+        once: true,
+      }}
+    >
+      <Card />
+    </motion.div>
+  )
+}
 
 const Shop = () => {
   return (
@@ -26,8 +45,9 @@ const Shop = () => {
         <AnimatedCard className="col-span-2" />
         <AnimatedCard />
       </div>
+      <div className="h-28" />
     </div>
-  );
-};
+  )
+}
 
-export default Shop;
+export default Shop
